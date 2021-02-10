@@ -132,6 +132,7 @@ implements SpeechletV2
     
     //datenbankabfrage des tabuworts
     private void selectTabuwort() {
+    	logger.info("Es wird auf die Datenbank zugegriffen");
     	try {
     		con = DBConnect.getConnection();  
     		Statement stmt = con.createStatement();
@@ -158,6 +159,7 @@ implements SpeechletV2
 		userRequest = intent.getSlot("anything").getValue();
 		logger.info("Received following text: [" + userRequest + "]");
 		logger.info("recState is [" + recState + "]");
+		logger.info("Erklaerung wird erkannt");
 		SpeechletResponse resp = null;
 		
 		switch (recState) {
@@ -170,7 +172,6 @@ implements SpeechletV2
 			resp = tellUserAndFinish("Erkannter Text: " + userRequest);
 		}   
 		return resp;
-		
 	}
 		
 
@@ -194,8 +195,8 @@ implements SpeechletV2
     		}
     		if (ourUserIntent.name().toLowerCase().equals(getTabuwort)) {
     			
-				logger.info("Deine Erklaerung war richtig?.");
-    		    res = askUserResponse(utterances.get(""));
+				logger.info("");
+    		    res = askUserResponse(utterances.get("Deine Erklaerung war richtig?"));
     	    } 
     	}
     	} return res;
