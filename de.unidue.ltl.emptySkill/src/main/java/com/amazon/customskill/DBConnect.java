@@ -7,9 +7,9 @@ public class DBConnect {
 	static String DBName = "Tabu.db";
 	private static Connection con = null;
 	
-public static void main(String[] args) {
+ /* public static void main(String[] args) {
 		Connection con = null;
-	}
+	} */
 	
 	public static Connection getConnection() {
 		
